@@ -10,7 +10,9 @@ use Filament\Tables\Table;
 use Filament\Support\RawJs;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -47,7 +49,7 @@ class CarServiceResource extends Resource
         ->suffix('.00')
         ->required(),
 
-        TextInput::make('duration in hour')
+        TextInput::make('duration_in_hour')
         ->numeric()
         ->minValue(1)
         ->maxValue(3)
@@ -73,7 +75,21 @@ class CarServiceResource extends Resource
     {
         return $table
             ->columns([
-                //
+
+                ImageColumn::make('icon')
+                                ->circular()
+                                ->stacked()
+                                ->size(50)
+
+                                ->limit(3),
+                TextColumn::make('name')
+                                ->sortable()
+                                ->searchable(),
+                TextColumn::make('price')     
+                                ->prefix('Rp.')
+                                ->sortable()
+                                ->searchable(),
+
             ])
             ->filters([
                 //
