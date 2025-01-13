@@ -44,6 +44,6 @@ class BookingTransaction extends Model
      */
     public function store_details(): BelongsTo
     {
-        return $this->belongsTo(CarStore::class, 'car_store_id', 'other_key');
+        return $this->belongsTo(CarStore::class, 'car_store_id', 'id');
     }
 }

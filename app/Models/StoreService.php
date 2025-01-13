@@ -27,7 +27,7 @@ class StoreService extends Model
      */
     public function store(): BelongsTo
     {
-        return $this->belongsTo(CarStore::class, 'car_store_id', 'other_key');
+        return $this->belongsTo(CarStore::class,'car_store_id');
     }
 
     /**
@@ -37,6 +37,6 @@ class StoreService extends Model
      */
     public function service(): BelongsTo
     {
-        return $this->belongsTo(CarService::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(CarService::class,'car_service_id');
     }
 }
