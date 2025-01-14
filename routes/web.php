@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('front.index');
+// });
+
+Route::get('/', [FrontEndController::class, 'index'])->name('front.index');
+Route::get('/search', [FrontEndController::class, 'search'])->name('front.search');
