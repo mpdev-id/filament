@@ -136,7 +136,7 @@
                     const cityId = document.getElementById('city_id').value;
                     const serviceType = link.getAttribute('data-service');
                     // redirect
-                    window.location.href = `/search?city_id=${cityId}&service_type=${serviceType}`;
+                    window.location.href = `/store?city_id=${cityId}&service_type=${serviceType}`;
                 });
             });
         </script>

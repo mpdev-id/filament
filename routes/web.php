@@ -20,4 +20,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [FrontEndController::class, 'index'])->name('front.index');
-Route::get('/search', [FrontEndController::class, 'search'])->name('front.search');
+Route::get('/store', [FrontEndController::class, 'search'])->name('front.search');
+// si mobilStore:slug dari route coba aja liat
+Route::get('/store/{mobilStore:slug}', [FrontEndController::class, 'details'])->name('front.details');
